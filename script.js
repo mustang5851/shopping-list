@@ -1,31 +1,29 @@
-const formInput = document.getElementById('item-form');
-const itemInput = document.querySelector('.form-input');
-const itemList = document.getElementById('item-list');
-const addItem = e=>{
-  e.preventDefault()
-  const itemValue = itemInput.value;
-  if(itemValue=== ''){
-    alert('Please enter item')
-    return;
-  }
-  const li = document.createElement('li');
-  li.appendChild(document.createTextNode(itemValue));
-  const button = createButton('remove-item text-red btn-link');
-  const icon = createIcon('fa-solid fa-xmark');
-  button.appendChild(icon);
-  li.appendChild(button);
-  itemList.appendChild(li);
-
-
+const form = document.getElementById('item-form');
+const input = document.querySelector('.form-input');
+const listItems = document.getElementById('item-list');
+function addItem(e){
+  e.preventDefault();
+//  validate item has value
+const itemValue = input.value;
+if(itemValue === ''){
+  alert('pls enter item value')
+  return;
 }
-const createButton = classes=>{
+const item = document.createElement('li');
+item.appendChild(document.createTextNode(itemValue));
+const button = addButton('remove-item text-red btn-link');
+item.appendChild(button);
+listItems.appendChild(item);
+input.value = '';
+}
+function addButton(classes){
   const button = document.createElement('button');
   button.className = classes;
+  const icon = createIcon('fa-solid fa-xmark');
+  button.appendChild(icon);
   return button;
- 
-
 }
-const createIcon = classes=>{
+function createIcon(classes){
   const icon = document.createElement('i');
   icon.className = classes;
   return icon;
@@ -33,8 +31,8 @@ const createIcon = classes=>{
 
 
 
-formInput.addEventListener('submit',addItem);
 
- 
+
+form.addEventListener('submit',addItem)
 
 
