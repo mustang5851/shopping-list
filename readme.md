@@ -1,3 +1,2 @@
-# Shopping List
-
-simple shopping list app
+#shopping List
+A new shopping list app made with jave script.
